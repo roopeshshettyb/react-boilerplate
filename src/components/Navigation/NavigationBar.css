@@ -1,0 +1,26 @@
+/* CSS for the navigation bar tabs */
+.tab-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.tab-item::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px; /* Set the height of your border */
+  background-color: #007bff; /* Set the color of your border */
+  transition: width 0.3s ease-in-out; /* Set the transition properties */
+  z-index: -1;
+}
+
+.tab-item:hover::before {
+  width: 100%;
+}

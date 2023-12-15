@@ -1,0 +1,1286 @@
+{
+  "ENV": "dev",
+  "SERVICE_NAME": "flashpact",
+  "ORGANISATION_NAME": "flashpact",
+  "APPLICATION_DETAILS": {
+    "NAME": "Flash Pact",
+    "LOGO": "https://flash-pact-public.s3.ap-south-1.amazonaws.com/logo.png",
+    "THEME_COLOR": "#007bff"
+  },
+  "MODEL_DEFAULTS": {
+    "USER": {
+      "GENDER": [
+        "MALE",
+        "FEMALE",
+        "Rather Not Say"
+      ]
+    },
+    "INSTITUTE": {
+      "TYPE": [
+        "COLLEGE",
+        "TRAINING INSTITUTE",
+        "PLACEMENT INSTITUTE",
+        "CONSULTANCY"
+      ]
+    },
+    "LISTING": {
+      "STATUS": {
+        "ACTIVE": "ACTIVE",
+        "INACTIVE": "INACTIVE",
+        "DRAFT": "DRAFT",
+        "CLOSED": "CLOSED"
+      },
+      "POSITION_TYPE": [
+        "FULL-TIME",
+        "PART-TIME",
+        "INTERNSHIP",
+        "FREELANCE",
+        "CONTRACT"
+      ]
+    },
+    "ROLES": {
+      "ALL": [
+        "ASPIRANT",
+        "ADMIN",
+        "TPO"
+      ],
+      "ASPIRANT": "ASPIRANT",
+      "ADMIN": "ADMIN",
+      "TPO": "TPO"
+    },
+    "ELIGIBILITIES": {
+      "CONTEXT": [
+        "GRADE 10",
+        "GRADE 12",
+        "BACHELORS",
+        "MASTERS"
+      ]
+    },
+    "GRADES": {
+      "CONTEXT": [
+        "GRADE 10",
+        "GRADE 12",
+        "BACHELORS",
+        "MASTERS"
+      ]
+    },
+    "APPLICATION": {
+      "STATUS": {
+        "APPLIED": "APPLIED",
+        "WAITING": "WAITING FOR COMPANY RESPONSE",
+        "OFFERED": "OFFERED",
+        "ACCEPTED": "OFFER ACCEPTED",
+        "REJECTED": "REJECTED",
+        "OFFER_REJECTED": "OFFER REJECTED"
+      }
+    },
+    "PERMISSIONS": {
+      "CREATE": "CREATE",
+      "READ": "READ",
+      "UPDATE": "UPDATE",
+      "DELETE": "DELETE"
+    },
+    "UNIQUE_KEYS": {
+      "USERS": "users",
+      "INSTITUTES": "institutes",
+      "COMPANIES": "companies",
+      "ELIGIBILITIES": "eligibilities",
+      "QUESTIONS": "questions",
+      "LISTINGS": "listings",
+      "STAGES": "stages",
+      "GRADES": "grades",
+      "ASPIRANTS": "aspirants",
+      "APPLICATIONS": "applications",
+      "QUESTION_RESPONSES": "question-responses",
+      "CALENDAR": "calendar"
+    },
+    "FOREIGN_KEY_MODEL_MAPPING": {
+      "instituteIds": "institutes",
+      "stageIds": "stages",
+      "currentStageId": "stages",
+      "companyId": "companies",
+      "listerIds": "users",
+      "listingIds": "listings",
+      "listingId": "listings",
+      "questionIds": "questions",
+      "eligibilityIds": "eligibilities",
+      "gradeIds": "grades",
+      "userId": "users",
+      "aspirantId": "aspirants"
+    }
+  },
+  "CSV_BATCHING": {
+    "CHUNK_SIZE": 100,
+    "STATUS": {
+      "MAKING_CHUNKS": "MAKING_CHUNKS",
+      "CHUNKS_PROCESSING": "CHUNKS_PROCESSING",
+      "CREATING_DATA": "CREATING_DATA",
+      "SENDING_EMAILS": "SENDING_EMAILS",
+      "FILE_UPLOADED": "FILE_UPLOADED",
+      "COMPLETED": "COMPLETED"
+    },
+    "CHUNK_PROCESSING_STATUS": {
+      "PENDING": "PENDING",
+      "PROCESSING": "PROCESSING",
+      "PROCESSED": "PROCESSED"
+    }
+  },
+  "REACT_APP": {
+    "URL": "http://localhost:3000",
+    "ROUTES": {
+      "RESET_PASSWORD": "users/reset-password"
+    }
+  },
+  "FORM_FIELDS": {
+    "CREATE": {
+      "users": [
+        {
+          "required": true,
+          "label": "Name",
+          "key": "name",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Date Of Birth",
+          "key": "dateOfBirth",
+          "type": "date",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Gender",
+          "key": "gender",
+          "options": [
+            "MALE",
+            "FEMALE",
+            "Rather Not Say"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": true,
+          "label": "Password",
+          "key": "password",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Email",
+          "key": "email",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Phone",
+          "key": "phone",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Role",
+          "key": "role",
+          "options": [
+            "ASPIRANT",
+            "ADMIN",
+            "TPO"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": false,
+          "label": "Profile Picture",
+          "key": "profilePicture",
+          "componentType": "File",
+          "multiple": false,
+          "subType": [
+            "image"
+          ]
+        }
+      ],
+      "institutes": [
+        {
+          "required": true,
+          "label": "Name",
+          "key": "name",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Pincode",
+          "key": "pincode",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Address",
+          "key": "address",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Type",
+          "key": "type",
+          "options": [
+            "COLLEGE",
+            "TRAINING INSTITUTE",
+            "PLACEMENT INSTITUTE",
+            "CONSULTANCY"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": false,
+          "label": "About",
+          "key": "about",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Site",
+          "key": "site",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Logo",
+          "key": "logo",
+          "componentType": "File",
+          "multiple": false,
+          "subType": [
+            "image"
+          ]
+        },
+        {
+          "required": false,
+          "label": "User Id",
+          "key": "userId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Listing Ids",
+          "key": "listingIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        }
+      ],
+      "companies": [
+        {
+          "required": true,
+          "label": "Name",
+          "key": "name",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Site",
+          "key": "site",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "About",
+          "key": "about",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Listing Ids",
+          "key": "listingIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Logo",
+          "key": "logo",
+          "componentType": "File",
+          "multiple": false,
+          "subType": [
+            "image"
+          ]
+        }
+      ],
+      "eligibilities": [
+        {
+          "required": true,
+          "label": "Context",
+          "key": "context",
+          "options": [
+            "GRADE 10",
+            "GRADE 12",
+            "BACHELORS",
+            "MASTERS"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": true,
+          "label": "Value in %",
+          "key": "value",
+          "type": "text",
+          "componentType": "TextField"
+        }
+      ],
+      "questions": [
+        {
+          "required": true,
+          "label": "Text",
+          "key": "text",
+          "type": "text",
+          "componentType": "TextField"
+        }
+      ],
+      "listings": [
+        {
+          "required": true,
+          "label": "Role",
+          "key": "role",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Position Type",
+          "key": "positionType",
+          "options": [
+            "FULL-TIME",
+            "PART-TIME",
+            "INTERNSHIP",
+            "FREELANCE",
+            "CONTRACT"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": true,
+          "label": "Minimum CTC in INR",
+          "key": "minCtc",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Maximum CTC in INR",
+          "key": "maxCtc",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Eligibility Ids",
+          "key": "eligibilityIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Courses Allowed",
+          "key": "coursesAllowed",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Job Description",
+          "key": "jobDescription",
+          "componentType": "RichText"
+        },
+        {
+          "required": false,
+          "label": "Job Description",
+          "key": "jobDescriptionPdfLink",
+          "componentType": "File",
+          "multiple": false,
+          "subType": [
+            "pdf"
+          ]
+        },
+        {
+          "required": false,
+          "label": "Career Page Application Link",
+          "key": "careerPageApplicationLink",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Institute Ids",
+          "key": "instituteIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Stage Ids",
+          "key": "stageIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Company Id",
+          "key": "companyId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Lister Ids",
+          "key": "listerIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Deadline",
+          "key": "deadline",
+          "componentType": "DateTimePicker"
+        },
+        {
+          "required": true,
+          "label": "Status",
+          "key": "status",
+          "options": [
+            "ACTIVE",
+            "INACTIVE",
+            "DRAFT",
+            "CLOSED"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": false,
+          "label": "Question Ids",
+          "key": "questionIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Start Taking Applications At",
+          "key": "startTakingApplicationsAt",
+          "componentType": "DateTimePicker"
+        }
+      ],
+      "stages": [
+        {
+          "required": true,
+          "label": "Name",
+          "key": "name",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Description",
+          "key": "description",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Scheduled At",
+          "key": "scheduledAt",
+          "componentType": "DateTimePicker"
+        },
+        {
+          "required": false,
+          "label": "Venue",
+          "key": "venue",
+          "type": "text",
+          "componentType": "TextField"
+        }
+      ],
+      "grades": [
+        {
+          "required": true,
+          "label": "Value in %",
+          "key": "value",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Context",
+          "key": "context",
+          "options": [
+            "GRADE 10",
+            "GRADE 12",
+            "BACHELORS",
+            "MASTERS"
+          ],
+          "componentType": "Select"
+        }
+      ],
+      "aspirants": [
+        {
+          "required": false,
+          "label": "User Id",
+          "key": "userId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Institute Id",
+          "key": "instituteId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Roll No",
+          "key": "rollNo",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Resume",
+          "key": "resume",
+          "componentType": "File",
+          "multiple": false,
+          "subType": [
+            "pdf"
+          ]
+        },
+        {
+          "required": false,
+          "label": "Degree",
+          "key": "degree",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Branch",
+          "key": "branch",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Grade Ids",
+          "key": "gradeIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Documents",
+          "key": "documents",
+          "componentType": "File",
+          "multiple": true,
+          "subType": [
+            "pdf"
+          ]
+        },
+        {
+          "required": false,
+          "label": "Allowed For Placement",
+          "key": "allowedForPlacement",
+          "componentType": "CheckBox"
+        }
+      ],
+      "applications": [
+        {
+          "required": true,
+          "label": "Listing Id",
+          "key": "listingId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Aspirant Id",
+          "key": "aspirantId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Current Stage Id",
+          "key": "currentStageId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Status",
+          "key": "status",
+          "options": [
+            "APPLIED",
+            "WAITING FOR COMPANY RESPONSE",
+            "OFFERED",
+            "OFFER ACCEPTED",
+            "REJECTED",
+            "OFFER REJECTED"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": false,
+          "label": "Offer Expiry",
+          "key": "offerExpiry",
+          "componentType": "DateTimePicker"
+        },
+        {
+          "required": false,
+          "label": "Offer Letter",
+          "key": "offerLetter",
+          "componentType": "File",
+          "multiple": false,
+          "subType": [
+            "pdf"
+          ]
+        }
+      ],
+      "question-responses": [
+        {
+          "required": true,
+          "label": "Question Id",
+          "key": "questionId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Listing Id",
+          "key": "listingId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Aspirant Id",
+          "key": "aspirantId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Response",
+          "key": "response",
+          "type": "text",
+          "componentType": "TextField"
+        }
+      ],
+      "calendar": [
+        {
+          "required": true,
+          "label": "Title",
+          "key": "title",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Description",
+          "key": "description",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Start",
+          "key": "start",
+          "componentType": "DateTimePicker"
+        },
+        {
+          "required": false,
+          "label": "End",
+          "key": "end",
+          "componentType": "DateTimePicker"
+        },
+        {
+          "required": true,
+          "label": "Institute Id",
+          "key": "instituteId",
+          "type": "number",
+          "componentType": "TextField"
+        }
+      ]
+    },
+    "UPDATE": {
+      "users": [
+        {
+          "required": true,
+          "label": "Name",
+          "key": "name",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Date Of Birth",
+          "key": "dateOfBirth",
+          "type": "date",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Gender",
+          "key": "gender",
+          "options": [
+            "MALE",
+            "FEMALE",
+            "Rather Not Say"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": true,
+          "label": "Password",
+          "key": "password",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Phone",
+          "key": "phone",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Profile Picture",
+          "key": "profilePicture",
+          "componentType": "File",
+          "multiple": false,
+          "subType": [
+            "image"
+          ]
+        }
+      ],
+      "institutes": [
+        {
+          "required": true,
+          "label": "Name",
+          "key": "name",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Pincode",
+          "key": "pincode",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Address",
+          "key": "address",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Type",
+          "key": "type",
+          "options": [
+            "COLLEGE",
+            "TRAINING INSTITUTE",
+            "PLACEMENT INSTITUTE",
+            "CONSULTANCY"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": false,
+          "label": "About",
+          "key": "about",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Site",
+          "key": "site",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Logo",
+          "key": "logo",
+          "componentType": "File",
+          "multiple": false,
+          "subType": [
+            "image"
+          ]
+        },
+        {
+          "required": false,
+          "label": "User Id",
+          "key": "userId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Listing Ids",
+          "key": "listingIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        }
+      ],
+      "companies": [
+        {
+          "required": true,
+          "label": "Name",
+          "key": "name",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Site",
+          "key": "site",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "About",
+          "key": "about",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Listing Ids",
+          "key": "listingIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Logo",
+          "key": "logo",
+          "componentType": "File",
+          "multiple": false,
+          "subType": [
+            "image"
+          ]
+        }
+      ],
+      "eligibilities": [
+        {
+          "required": true,
+          "label": "Context",
+          "key": "context",
+          "options": [
+            "GRADE 10",
+            "GRADE 12",
+            "BACHELORS",
+            "MASTERS"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": true,
+          "label": "Value in %",
+          "key": "value",
+          "type": "text",
+          "componentType": "TextField"
+        }
+      ],
+      "questions": [
+        {
+          "required": true,
+          "label": "Text",
+          "key": "text",
+          "type": "text",
+          "componentType": "TextField"
+        }
+      ],
+      "listings": [
+        {
+          "required": true,
+          "label": "Role",
+          "key": "role",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Position Type",
+          "key": "positionType",
+          "options": [
+            "FULL-TIME",
+            "PART-TIME",
+            "INTERNSHIP",
+            "FREELANCE",
+            "CONTRACT"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": true,
+          "label": "Minimum CTC in INR",
+          "key": "minCtc",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Maximum CTC in INR",
+          "key": "maxCtc",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Eligibility Ids",
+          "key": "eligibilityIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Courses Allowed",
+          "key": "coursesAllowed",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Job Description",
+          "key": "jobDescription",
+          "componentType": "RichText"
+        },
+        {
+          "required": false,
+          "label": "Job Description",
+          "key": "jobDescriptionPdfLink",
+          "componentType": "File",
+          "multiple": false,
+          "subType": [
+            "pdf"
+          ]
+        },
+        {
+          "required": false,
+          "label": "Career Page Application Link",
+          "key": "careerPageApplicationLink",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Institute Ids",
+          "key": "instituteIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Stage Ids",
+          "key": "stageIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Company Id",
+          "key": "companyId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Lister Ids",
+          "key": "listerIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Deadline",
+          "key": "deadline",
+          "componentType": "DateTimePicker"
+        },
+        {
+          "required": true,
+          "label": "Status",
+          "key": "status",
+          "options": [
+            "ACTIVE",
+            "INACTIVE",
+            "DRAFT",
+            "CLOSED"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": false,
+          "label": "Question Ids",
+          "key": "questionIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Start Taking Applications At",
+          "key": "startTakingApplicationsAt",
+          "componentType": "DateTimePicker"
+        }
+      ],
+      "stages": [
+        {
+          "required": true,
+          "label": "Name",
+          "key": "name",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Description",
+          "key": "description",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Scheduled At",
+          "key": "scheduledAt",
+          "componentType": "DateTimePicker"
+        },
+        {
+          "required": false,
+          "label": "Venue",
+          "key": "venue",
+          "type": "text",
+          "componentType": "TextField"
+        }
+      ],
+      "grades": [
+        {
+          "required": true,
+          "label": "Value in %",
+          "key": "value",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Context",
+          "key": "context",
+          "options": [
+            "GRADE 10",
+            "GRADE 12",
+            "BACHELORS",
+            "MASTERS"
+          ],
+          "componentType": "Select"
+        }
+      ],
+      "aspirants": [
+        {
+          "required": false,
+          "label": "User Id",
+          "key": "userId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Institute Id",
+          "key": "instituteId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Roll No",
+          "key": "rollNo",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Resume",
+          "key": "resume",
+          "componentType": "File",
+          "multiple": false,
+          "subType": [
+            "pdf"
+          ]
+        },
+        {
+          "required": false,
+          "label": "Degree",
+          "key": "degree",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Branch",
+          "key": "branch",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Grade Ids",
+          "key": "gradeIds",
+          "type": "textarea",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Documents",
+          "key": "documents",
+          "componentType": "File",
+          "multiple": true,
+          "subType": [
+            "pdf"
+          ]
+        },
+        {
+          "required": false,
+          "label": "Allowed For Placement",
+          "key": "allowedForPlacement",
+          "componentType": "CheckBox"
+        }
+      ],
+      "applications": [
+        {
+          "required": true,
+          "label": "Listing Id",
+          "key": "listingId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Aspirant Id",
+          "key": "aspirantId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Current Stage Id",
+          "key": "currentStageId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Status",
+          "key": "status",
+          "options": [
+            "APPLIED",
+            "WAITING FOR COMPANY RESPONSE",
+            "OFFERED",
+            "OFFER ACCEPTED",
+            "REJECTED",
+            "OFFER REJECTED"
+          ],
+          "componentType": "Select"
+        },
+        {
+          "required": false,
+          "label": "Offer Expiry",
+          "key": "offerExpiry",
+          "componentType": "DateTimePicker"
+        },
+        {
+          "required": false,
+          "label": "Offer Letter",
+          "key": "offerLetter",
+          "componentType": "File",
+          "multiple": false,
+          "subType": [
+            "pdf"
+          ]
+        }
+      ],
+      "question-responses": [
+        {
+          "required": true,
+          "label": "Question Id",
+          "key": "questionId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Listing Id",
+          "key": "listingId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": false,
+          "label": "Aspirant Id",
+          "key": "aspirantId",
+          "type": "number",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Response",
+          "key": "response",
+          "type": "text",
+          "componentType": "TextField"
+        }
+      ],
+      "calendar": [
+        {
+          "required": true,
+          "label": "Title",
+          "key": "title",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Description",
+          "key": "description",
+          "type": "text",
+          "componentType": "TextField"
+        },
+        {
+          "required": true,
+          "label": "Start",
+          "key": "start",
+          "componentType": "DateTimePicker"
+        },
+        {
+          "required": false,
+          "label": "End",
+          "key": "end",
+          "componentType": "DateTimePicker"
+        },
+        {
+          "required": true,
+          "label": "Institute Id",
+          "key": "instituteId",
+          "type": "number",
+          "componentType": "TextField"
+        }
+      ]
+    }
+  }
+}
